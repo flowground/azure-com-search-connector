@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Input of check name availability API.",
+            "properties": {
+                "name": {
+                    "description": "The Search service name to validate. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of the resource whose name is to be validated. This value must always be 'searchServices'.",
+                    "enum": [
+                        "searchServices"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "ResourceType"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "x_ms_client_request_id": {
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
